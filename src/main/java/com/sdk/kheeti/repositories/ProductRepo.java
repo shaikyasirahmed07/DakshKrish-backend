@@ -11,4 +11,5 @@ import com.sdk.kheeti.model.Product;
 public interface ProductRepo extends JpaRepository<Product, Long> {
     Optional<Product> findByIdAndFarmerId(Long productId, Long farmerId);
     List<Product> findByFarmerId(Long farmerId);
+    
 }

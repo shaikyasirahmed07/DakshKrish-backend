@@ -123,19 +123,7 @@ public class AdminController {
         }
     }
 
-    @GetMapping("/{farmerId}/products")
-    public ResponseEntity<?> getFarmerProducts(@PathVariable Long farmerId) {
-        try {
-            List<Product> products = farmerService.getProductsByFarmerId(farmerId);
-            return ResponseEntity.ok(products);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(Map.of("message", "Error fetching products: " + e.getMessage()));
-        }
-    }
-
-    /**
+     /**
      * Approve a Farmer
      */
     @PostMapping("/farmers/approve/{farmerId}")

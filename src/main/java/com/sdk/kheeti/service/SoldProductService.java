@@ -22,14 +22,14 @@ public class SoldProductService {
     public List<SoldProduct> getSoldProductsByFarmer(Long farmerId) {
         Farmer farmer = farmerRepository.findById(farmerId)
                 .orElseThrow(() -> new RuntimeException("Farmer not found"));
-        return soldProductRepository.findByFarmer(farmer);
+        return soldProductRepository.findByFarmerId(farmerId);
     }
 
     public SoldProduct addSoldProduct(Long farmerId, SoldProduct soldProduct) {
         Farmer farmer = farmerRepository.findById(farmerId)
                 .orElseThrow(() -> new RuntimeException("Farmer not found"));
 
-        soldProduct.setFarmer(farmer);
+        soldProduct.setFarmerId(farmerId);
         return soldProductRepository.save(soldProduct);
     }
 }

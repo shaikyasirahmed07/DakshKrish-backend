@@ -80,7 +80,7 @@ public class FarmerService {
                 .orElseThrow(() -> new RuntimeException("Farmer not found"));
 
         // Fetch products using the repository instance
-        return productRepo.findByFarmer(farmer); // Use correct method
+        return productRepo.findByFarmerId(farmerId); // Use correct method
     }
 
 
